@@ -9,6 +9,6 @@ public class AppConfig {
 
     @Bean
     public TestRestTemplate restTemplate() {
-        return new RestTemplate();
+        return new TestRestTemplate();
     }
 }
