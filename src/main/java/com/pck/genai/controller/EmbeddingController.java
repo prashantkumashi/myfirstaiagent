@@ -23,7 +23,7 @@ public class EmbeddingController {
 
     private static final String EMBEDDING_API_URL = "https://api.openai.com/v1/embeddings";
     private static final String API_KEY = "your_openai_api_key";
-    private static final String EMBEDDING_FILE_PATH = "server_folder/aws_services.json";
+    private static final String EMBEDDING_FILE_PATH = "data/aws_services.json";
     private static List<Map<String, Object>> DATA;
 
     static {
