@@ -2,13 +2,13 @@ package com.pck.genai.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.boot.test.web.client.TestRestTemplate;
 
 @Configuration
 public class AppConfig {
 
     @Bean
-    public RestTemplate restTemplate() {
+    public TestRestTemplate restTemplate() {
         return new RestTemplate();
     }
 }
