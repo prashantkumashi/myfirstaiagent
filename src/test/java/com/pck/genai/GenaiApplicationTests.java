@@ -5,10 +5,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 class GenaiApplicationTests {
-
-	@LocalServerPort
-    	private int port;
-	
 	@Test
 	void contextLoads() {
 	}
