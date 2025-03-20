@@ -2,19 +2,17 @@ package com.pck.genai;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.Bean;
+import org.springframework.boot.web.server.LocalServerPort;
 
 import org.springframework.web.client.RestTemplate;
 
-@SpringBootTest
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT, properties = "server.port=8080")
 class GenaiApplicationTests {
 
+	@LocalServerPort
+    	private int port;
+	
 	@Test
 	void contextLoads() {
-	}
-
-	@Bean
-	public RestTemplate restTemplate(){
-		return new RestTemplate();
 	}
 }
