@@ -1,0 +1,316 @@
+[
+    {
+        "id": "1",
+        "cloud": "AWS",
+        "type": "compute",
+        "service": "EC2",
+        "options": {
+            "min": "1",
+            "max": "10",
+            "os": "ubuntu20"
+        }
+    },
+    {
+        "id": "2",
+        "cloud": "AWS",
+        "type": "compute",
+        "service": "ASG",
+        "options": {
+            "min": "3",
+            "max": "5",
+            "os": "rhel8"
+        }
+    },
+    {
+        "id": "3",
+        "cloud": "AWS",
+        "type": "compute",
+        "service": "Lambda",
+        "options": {
+            "runtime": "Python3.9",
+            "memory": "256MB"
+        }
+    },
+    {
+        "id": "4",
+        "cloud": "AWS",
+        "type": "compute",
+        "service": "Elastic Beanstalk",
+        "options": {
+            "platform": "Java",
+            "scaling": "auto"
+        }
+    },
+    {
+        "id": "5",
+        "cloud": "AWS",
+        "type": "integration",
+        "service": "API Gateway",
+        "options": {
+            "throttling": "enabled",
+            "CORS": "allowed"
+        }
+    },
+    {
+        "id": "6",
+        "cloud": "AWS",
+        "type": "integration",
+        "service": "SNS",
+        "options": {
+            "topic_type": "Standard",
+            "encryption": "enabled"
+        }
+    },
+    {
+        "id": "7",
+        "cloud": "AWS",
+        "type": "integration",
+        "service": "SQS",
+        "options": {
+            "queue_type": "FIFO",
+            "visibility_timeout": "30s"
+        }
+    },
+    {
+        "id": "8",
+        "cloud": "AWS",
+        "type": "integration",
+        "service": "EventBridge",
+        "options": {
+            "event_bus": "default",
+            "rule_count": "50+"
+        }
+    },
+    {
+        "id": "9",
+        "cloud": "AWS",
+        "type": "database",
+        "service": "RDS",
+        "options": {
+            "engine": "PostgreSQL",
+            "version": "13",
+            "backup": "enabled"
+        }
+    },
+    {
+        "id": "10",
+        "cloud": "AWS",
+        "type": "database",
+        "service": "DynamoDB",
+        "options": {
+            "mode": "on-demand",
+            "replication": "multi-region"
+        }
+    },
+    {
+        "id": "11",
+        "cloud": "AWS",
+        "type": "database",
+        "service": "Redshift",
+        "options": {
+            "nodes": "4",
+            "storage": "columnar"
+        }
+    },
+    {
+        "id": "12",
+        "cloud": "AWS",
+        "type": "database",
+        "service": "Neptune",
+        "options": {
+            "graph_type": "RDF",
+            "high_availability": "enabled"
+        }
+    },
+    {
+        "id": "13",
+        "cloud": "AWS",
+        "type": "storage",
+        "service": "S3",
+        "options": {
+            "level": "high",
+            "retention": "365",
+            "replication": "global"
+        }
+    },
+    {
+        "id": "14",
+        "cloud": "AWS",
+        "type": "storage",
+        "service": "EBS",
+        "options": {
+            "volume_type": "gp3",
+            "size": "100GB"
+        }
+    },
+    {
+        "id": "15",
+        "cloud": "AWS",
+        "type": "storage",
+        "service": "EFS",
+        "options": {
+            "throughput_mode": "elastic",
+            "encryption": "enabled"
+        }
+    },
+    {
+        "id": "16",
+        "cloud": "AWS",
+        "type": "networking",
+        "service": "VPC",
+        "options": {
+            "subnets": "3",
+            "cidr": "10.0.0.0/16"
+        }
+    },
+    {
+        "id": "17",
+        "cloud": "AWS",
+        "type": "networking",
+        "service": "Route 53",
+        "options": {
+            "dns": "managed",
+            "failover": "enabled"
+        }
+    },
+    {
+        "id": "18",
+        "cloud": "AWS",
+        "type": "security",
+        "service": "IAM",
+        "options": {
+            "policies": "custom",
+            "MFA": "enabled"
+        }
+    },
+    {
+        "id": "19",
+        "cloud": "AWS",
+        "type": "security",
+        "service": "Cognito",
+        "options": {
+            "user_pool": "enabled",
+            "federation": "AWS"
+        }
+    },
+    {
+        "id": "20",
+        "cloud": "AWS",
+        "type": "monitoring",
+        "service": "CloudWatch",
+        "options": {
+            "alerts": "enabled",
+            "retention": "30"
+        }
+    },
+    {
+        "id": "21",
+        "cloud": "AWS",
+        "type": "monitoring",
+        "service": "X-Ray",
+        "options": {
+            "tracing": "enabled",
+            "sampling": "10%"
+        }
+    },
+    {
+        "id": "22",
+        "cloud": "AWS",
+        "type": "serverless",
+        "service": "Lambda",
+        "options": {
+            "runtime": "Python3.9",
+            "memory": "256MB"
+        }
+    },
+    {
+        "id": "23",
+        "cloud": "AWS",
+        "type": "serverless",
+        "service": "API Gateway",
+        "options": {
+            "throttling": "enabled",
+            "CORS": "allowed"
+        }
+    },
+    {
+        "id": "24",
+        "cloud": "AWS",
+        "type": "analytics",
+        "service": "Athena",
+        "options": {
+            "query_execution": "fast",
+            "storage": "S3"
+        }
+    },
+    {
+        "id": "25",
+        "cloud": "AWS",
+        "type": "analytics",
+        "service": "Kinesis",
+        "options": {
+            "shards": "2",
+            "data_retention": "24h"
+        }
+    },
+    {
+        "id": "26",
+        "cloud": "AWS",
+        "type": "devops",
+        "service": "CodePipeline",
+        "options": {
+            "stages": "3",
+            "artifacts": "S3"
+        }
+    },
+    {
+        "id": "27",
+        "cloud": "AWS",
+        "type": "devops",
+        "service": "CodeBuild",
+        "options": {
+            "compute_type": "large",
+            "logs": "CloudWatch"
+        }
+    },
+    {
+        "id": "28",
+        "cloud": "AWS",
+        "type": "ai/ml",
+        "service": "SageMaker",
+        "options": {
+            "notebook": "enabled",
+            "training_jobs": "autoscaled"
+        }
+    },
+    {
+        "id": "29",
+        "cloud": "AWS",
+        "type": "container",
+        "service": "EKS",
+        "options": {
+            "nodes": "5",
+            "autoscaling": "enabled"
+        }
+    },
+    {
+        "id": "30",
+        "cloud": "AWS",
+        "type": "container",
+        "service": "ECS",
+        "options": {
+            "tasks": "Fargate",
+            "scaling": "enabled"
+        }
+    },
+    {
+        "id": "31",
+        "cloud": "AWS",
+        "type": "storage",
+        "service": "Glacier",
+        "options": {
+            "retrieval": "expedited",
+            "retention": "10 years"
+        }
+    }
+]
