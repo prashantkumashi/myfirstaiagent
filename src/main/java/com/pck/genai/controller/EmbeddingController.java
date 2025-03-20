@@ -1,6 +1,7 @@
 package com.pck.genai.controller;
 
 import com.pck.genai.dto.ChatRequest;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
@@ -28,7 +29,8 @@ public class EmbeddingController {
 
     static {
         try {
-            String content = new String(Files.readAllBytes(Paths.get(EMBEDDING_FILE_PATH)));
+            ClassPathResource resource = new ClassPathResource(EMBEDDING_FILE_PATH);
+            String content = new String(Files.readAllBytes(Paths.get(resource.getURI())));
             ObjectMapper objectMapper = new ObjectMapper();
             DATA = objectMapper.readValue(content, List.class);
         } catch (Exception e) {
