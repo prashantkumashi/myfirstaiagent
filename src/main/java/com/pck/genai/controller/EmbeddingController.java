@@ -1,6 +1,7 @@
 package com.pck.genai.controller;
 
 import com.pck.genai.dto.ChatRequest;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
