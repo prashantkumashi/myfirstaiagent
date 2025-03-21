@@ -27,6 +27,9 @@ public class EmbeddingController {
     private static final String EMBEDDING_FILE_PATH = "data/aws_filtered_services.json";
     private static List<Map<String, Object>> DATA;
 
+    @Autowired
+    AppConfig appConfig;
+
     static {
         try {
             ClassPathResource resource = new ClassPathResource(EMBEDDING_FILE_PATH);
@@ -60,7 +63,7 @@ public class EmbeddingController {
         RestTemplate restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-        headers.set("Authorization", "Bearer " + API_KEY);
+        headers.set("Authorization", "Bearer " + appConfig.getOpenApiKey());
 
         String requestBody = "{\"input\": \"" + text + "\", \"model\": \"text-embedding-ada-002\"}";
         HttpEntity<String> entity = new HttpEntity<>(requestBody, headers);

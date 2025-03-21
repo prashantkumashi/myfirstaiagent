@@ -1,6 +1,7 @@
 package com.pck.genai.controller;
 
 import com.pck.genai.dto.ChatRequest;
+import com.pck.genai.config.AppConfig;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
@@ -17,7 +18,9 @@ import java.util.Collections;
 public class ChatController {
 
     private static final String OPENAI_API_URL = "https://api.openai.com/v1/chat/completions";
-    private static final String API_KEY = "your_openai_api_key";
+
+    @Autowired
+    AppConfig appConfig;
 
     @PostMapping("/ask")
     public ResponseEntity<String> chatWithGPT(@RequestBody ChatRequest request) {
@@ -26,7 +29,7 @@ public class ChatController {
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.APPLICATION_JSON);
             headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
-            headers.set("Authorization", "Bearer " + API_KEY);
+            headers.set("Authorization", "Bearer " + appConfig.getOpenApiKey());
 
             ObjectMapper objectMapper = new ObjectMapper();
             String requestBody = objectMapper.writeValueAsString(request);
