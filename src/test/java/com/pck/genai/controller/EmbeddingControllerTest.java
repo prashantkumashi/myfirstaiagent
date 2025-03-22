@@ -22,6 +22,12 @@ public class EmbeddingControllerTest {
     @Test
     public void testMatchServices() throws Exception {
         ChatRequest request = new ChatRequest();
+        request.setModel("gpt-4-turbo");
+        request.setTemperature(0.7);
+        request.setMax_tokens(200);
+        request.setTop_p(1.0);
+        request.setFrequency_penalty(0.0);
+        request.setPresence_penalty(0.0);
         request.setMessages(List.of(new ChatMessage("user", "I need scalable compute and storage services")).toArray(new ChatMessage[0]));
 
         HttpHeaders headers = new HttpHeaders();

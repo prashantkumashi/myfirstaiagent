@@ -64,7 +64,7 @@ public class EmbeddingController {
         RestTemplate restTemplate = new RestTemplate();
         HttpHeaders headers = apiConfig.getHeaders();
         headers.set("Content-Type", "application/json");
-        System.out.println("Chatcontroller ..... "+headers);
+        System.out.println("Embeddingcontroller ..... "+headers);
         String requestBody = "{\"input\": \"" + text + "\", \"model\": \"text-embedding-ada-002\"}";
         HttpEntity<String> entity = new HttpEntity<>(requestBody, headers);
         ResponseEntity<String> response = restTemplate.exchange(EMBEDDING_API_URL, HttpMethod.POST, entity, String.class);
