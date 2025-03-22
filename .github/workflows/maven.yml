@@ -30,7 +30,7 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml -DskipTests=true
     - name: Start Spring Boot Application
-      run: mvn spring-boot:run -Dspring-boot.run.arguments="--openai.api.key=${{ secrets.OPENAI_API_KEY }}" &
+      run: mvn spring-boot:run -Dspring-boot.run.arguments="--OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }} --OPENAI_PROJECT_ID=${{ secrets.OPENAI_PROJECT_ID }} --OPENAI_ORG_ID=${{ secrets.OPENAI_ORG_ID }}" &
     - name: Wait for Spring Boot to start
       run: sleep 30
     - name: Run Tests with Maven

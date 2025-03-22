@@ -1,7 +1,7 @@
 package com.pck.genai.controller;
 
 import com.pck.genai.dto.ChatRequest;
-import com.pck.genai.config.AppConfig;
+import com.pck.genai.config.ApiConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.ResponseEntity;
@@ -10,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
+
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -25,12 +25,11 @@ import java.util.Map;
 public class EmbeddingController {
 
     private static final String EMBEDDING_API_URL = "https://api.openai.com/v1/embeddings";
-    private static final String API_KEY = "your_openai_api_key";
     private static final String EMBEDDING_FILE_PATH = "data/aws_filtered_services.json";
     private static List<Map<String, Object>> DATA;
 
     @Autowired
-    AppConfig appConfig;
+    ApiConfig apiConfig;
 
     static {
         try {
@@ -63,10 +62,9 @@ public class EmbeddingController {
 
     private double[] getEmbedding(String text) throws Exception {
         RestTemplate restTemplate = new RestTemplate();
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON);
-        headers.set("Authorization", "Bearer " + appConfig.getOpenApiKey());
-
+        HttpHeaders headers = apiConfig.getHeaders();
+        headers.set("Content-Type", "application/json");
+        System.out.println("Chatcontroller ..... "+headers);
         String requestBody = "{\"input\": \"" + text + "\", \"model\": \"text-embedding-ada-002\"}";
         HttpEntity<String> entity = new HttpEntity<>(requestBody, headers);
         ResponseEntity<String> response = restTemplate.exchange(EMBEDDING_API_URL, HttpMethod.POST, entity, String.class);
